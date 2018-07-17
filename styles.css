@@ -1,0 +1,164 @@
+/* ------------------------------------------
+  DEMO PAGE'S STYLES
+--------------------------------------------- */
+
+body, div,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre, dl, dt, dd, ol, ul, li, hr,
+fieldset, form, label, legend, th, td,
+article, aside, figure, footer, header, hgroup, menu, nav, section,
+summary, hgroup {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+a:active,
+a:hover {
+  outline: 0;
+}
+
+@-webkit-viewport { width: device-width; }
+@-moz-viewport { width: device-width; }
+@-ms-viewport { width: device-width; }
+@-o-viewport { width: device-width; }
+@viewport { width: device-width; }
+
+body {
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  color: #747678;
+  background: #f5f2e3;
+  font: normal 100%/1.4 sans-serif;
+}
+
+.nav-collapse,
+.nav-collapse * {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.nav-collapse,
+.nav-collapse ul {
+  list-style: none;
+  width: 100%;
+  float: left;
+}
+
+.nav-collapse li {
+  float: left;
+  width: 100%;
+}
+
+.nav-collapse ul li{
+	padding-bottom: 0px !important;	
+	background-color: #f8f6eb !important;	
+	
+}
+.nav-collapse ul li a {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: bold;
+	text-transform:uppercase;
+	 text-align: left !important;
+}
+
+
+.nav-collapse ul li a:hover {
+	 color: #414042; 
+}
+@media screen and (min-width: 807px) {
+  .nav-collapse li {
+    width: 25%;
+    *width: 24.9%; /* IE7 Hack */
+    _width: 19%; /* IE6 Hack */
+  }
+}
+
+.nav-collapse a {
+  color: #414042 !important;
+  text-decoration: none;
+  width: 100%;
+  background: #f8f6eb !important;	
+  border-bottom: 3px solid #e2dfd5;
+  padding: 0.7em 0 0.7em 10px;
+  float: left;
+  font-family: Arial;
+  font-size: 18px;
+
+}
+
+@media screen and (min-width: 768px) {
+  .nav-collapse a {
+    margin: 0;
+    padding: 1em;
+    float: left;
+    text-align: left !important;
+    border-bottom: 0;
+    border-right: 1px solid white;
+  }
+}
+
+.nav-collapse ul ul a {
+  background: #f8f6eb !important;	
+  padding-left: 3em;
+}
+
+@media screen and (min-width: 769px) {
+  .nav-collapse ul ul a {
+    display: none;
+  }
+}
+
+.nav-toggle {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 100%;
+ /* height: 68px; */
+  float:right;
+  margin-left: 0px;
+  padding-top: 0px;
+  text-indent: -9999px;
+  overflow: hidden;
+  background: #003891 url("hamburger.svg") no-repeat 100% 100%;
+
+}
+
+@media screen and (max-width: 240px) {
+	.nav-toggle {
+		background: #003891 url("hamburger.svg") no-repeat !important;
+		width: 100% !important;
+	/*	 height: 26px !important; */
+	/*	 background-size: 180px 26px!important; */
+		 float:left !important;
+		  margin-left: 0px !important;
+
+	}
+	#nivoslider-2115 {
+		width: 210px !important;
+		height: 121px !important;
+	}
+}
+@media screen and (max-width: 314px) {
+	.nav-toggle {
+    background-image: url("hamburger.svg");
+	/*background-size: 265px 55px; */
+width: 100% !important;
+		/* height: 55px; */
+		 margin-left: 0px !important;
+		  float:left;	}
+}
+@media screen and (-webkit-min-device-pixel-ratio: 1.3), screen and (min--moz-device-pixel-ratio: 1.3), screen and (-o-min-device-pixel-ratio: 2 / 1), screen and (min-device-pixel-ratio: 1.3), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+  .nav-toggle {
+    background-image: url("hamburger.svg");
+/*	background-size: 265px 55px; */
+width: 100% !important;
+		/* height: 55px; */
+		 margin-left: 0px !important;
+		  float:right;
+  }
+}
