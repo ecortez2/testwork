@@ -1,11 +1,3 @@
-/*! responsive-nav.js 1.0.25
- * https://github.com/viljamis/responsive-nav.js
- * http://responsive-nav.com
- *
- * Copyright (c) 2013 @viljamis
- * Available under the MIT license
- */
-
 (function () {
 
   "use strict";
@@ -35,17 +27,13 @@
       };
     }
     /* exported addEvent, removeEvent, getChildren, setAttributes, addClass, removeClass */
-    // fn arg can be an object or a function, thanks to handleEvent
-    // read more at: http://www.thecssninja.com/javascript/handleevent
     var addEvent = function (el, evt, fn, bubble) {
         if ("addEventListener" in el) {
-          // BBOS6 doesn't support handleEvent, catch and polyfill
           try {
             el.addEventListener(evt, fn, bubble);
           } catch (e) {
             if (typeof fn === "object" && fn.handleEvent) {
               el.addEventListener(evt, function (e) {
-                // Bind fn as this and set first arg as event object
                 fn.handleEvent.call(fn, e);
               }, bubble);
             } else {
@@ -53,10 +41,8 @@
             }
           }
         } else if ("attachEvent" in el) {
-          // check if the callback is an object and contains handleEvent
           if (typeof fn === "object" && fn.handleEvent) {
             el.attachEvent("on" + evt, function () {
-              // Bind fn as this
               fn.handleEvent.call(fn);
             });
           } else {
@@ -93,9 +79,7 @@
         if (e.children.length < 1) {
           throw new Error("The Nav container has no containing elements");
         }
-        // Store all children in array
         var children = [];
-        // Loop through children and store in array if child != TextNode
         for (var i = 0; i < e.children.length; i++) {
           if (e.children[i].nodeType === 1) {
             children.push(e.children[i]);
@@ -132,7 +116,6 @@
     var ResponsiveNav = function (el, options) {
         var i;
   
-        // Default options
         this.options = {
           animate: true,             // Boolean: Use CSS3 transitions, true or false
           transition: 250,           // Integer: Speed of the transition, in milliseconds
@@ -147,39 +130,31 @@
           close: function(){}        // Function: Close callback
         };
   
-        // User defined options
         for (i in options) {
           this.options[i] = options[i];
         }
   
-        // Adds "js" class for <html>
         addClass(document.documentElement, this.options.jsClass);
   
-        // Wrapper
         this.wrapperEl = el.replace("#", "");
         if (document.getElementById(this.wrapperEl)) {
           this.wrapper = document.getElementById(this.wrapperEl);
         } else if (document.querySelector(this.wrapperEl)) {
           this.wrapper = document.querySelector(this.wrapperEl);
         } else {
-          // If el doesn't exists, stop here.
           throw new Error("The nav element you are trying to select doesn't exist");
         }
   
-        // Inner wrapper
         this.wrapper.inner = getChildren(this.wrapper);
   
-        // For minification
         opts = this.options;
         nav = this.wrapper;
   
-        // Init
         this._init(this);
       };
   
     ResponsiveNav.prototype = {
-  
-      // Public methods
+
       destroy: function () {
         this._removeStyles();
         removeClass(nav, "closed");
@@ -238,7 +213,6 @@
         if (window.getComputedStyle(navToggle, null).getPropertyValue("display") !== "none") {
           setAttributes(navToggle, {"aria-hidden": "false"});
   
-          // If the navigation is hidden
           if (nav.className.match(/(^|\s)closed(\s|$)/)) {
             setAttributes(nav, {"aria-hidden": "true"});
             nav.style.position = "absolute";
@@ -280,7 +254,6 @@
         }
       },
   
-      // Private methods
       _init: function () {
         addClass(nav, opts.navClass);
         addClass(nav, "closed");
